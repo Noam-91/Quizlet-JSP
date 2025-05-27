@@ -36,26 +36,26 @@ This web service offers distinct functionalities for both users and administrato
 
 ## 📂 Project Structure
 
-├── src/
-│   ├── main/
-│   │   ├── java/                   # Java source code (Servlets, DAOs, Models)
-│   │   │   └── com/yourcompany/quizlet/
-│   │   │       ├── controller/     # Servlets handling requests
-│   │   │       ├── service/        # Services handling the business logic
-│   │   │       ├── dao/            # Data Access Objects (JDBC logic)
-│   │   │       ├── domain/         # Java POJOs (Quiz, Question, User etc.)
-│   │   │       ├── dto/            # Data Transfer Objects
-│   │   │       └── orm/            # Object RowMappers
-│   │   ├── webapp/                 # Web application root
-│   │   │   ├── WEB-INF/
-│   │   │   │   ├── web.xml         # Deployment Descriptor
-│   │   │   │   └── lib/            # External JARs (e.g., MySQL JDBC Driver)
-│   │   │   ├── jsp/                # JSP files (e.g., quiz.jsp, admin.jsp)
-│   │   │   └── css/                # CSS files
-│   │   │   └── js/                 # JavaScript files (for countdown, form handling)
-│   └── test/
-├── pom.xml (or build.gradle)       # Build configuration
-└── README.md
+├── src/  
+│   ├── main/  
+│   │   ├── java/                   # Java source code (Servlets, DAOs, Models)  
+│   │   │   └── com/yourcompany/quizlet/  
+│   │   │       ├── controller/     # Servlets handling requests  
+│   │   │       ├── service/        # Services handling the business logic  
+│   │   │       ├── dao/            # Data Access Objects (JDBC logic)  
+│   │   │       ├── domain/         # Java POJOs (Quiz, Question, User etc.)  
+│   │   │       ├── dto/            # Data Transfer Objects  
+│   │   │       └── orm/            # Object RowMappers  
+│   │   ├── webapp/                 # Web application root  
+│   │   │   ├── WEB-INF/  
+│   │   │   │   ├── web.xml         # Deployment Descriptor  
+│   │   │   │   └── lib/            # External JARs (e.g., MySQL JDBC Driver)  
+│   │   │   ├── jsp/                # JSP files (e.g., quiz.jsp, admin.jsp)  
+│   │   │   └── css/                # CSS files  
+│   │   │   └── js/                 # JavaScript files (for countdown, form handling)  
+│   └── test/  
+├── pom.xml (or build.gradle)       # Build configuration  
+└── README.md  
 ---
 
 ## 🚀 Getting Started
