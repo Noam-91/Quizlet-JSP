@@ -1,0 +1,203 @@
+/* admin-quizzes.css */
+
+/* Basic body styling - may be overridden by navbar.css or a common stylesheet */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0; /* Reset margin to avoid conflicts with navbar */
+    padding: 20px; /* Add padding if margin is reset */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px; /* Add space below navbar */
+    margin-bottom: 20px;
+}
+
+.filter-options {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    display: flex; /* Use flexbox for layout */
+    gap: 15px; /* Space between filter items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.filter-options form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; /* Form takes full width of its container */
+}
+
+
+.filter-options label {
+    font-weight: bold;
+    color: #555;
+    /* Remove margin-right if using gap in flexbox */
+}
+
+.filter-options select,
+.filter-options button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.filter-options button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Remove margin-right if using gap in flexbox */
+}
+
+.filter-options button:hover {
+    background-color: #4cae4c;
+}
+
+
+.quiz-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.quiz-results-table th,
+.quiz-results-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    /* REMOVED: position: relative; from td */
+}
+
+.quiz-results-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Style for sortable headers */
+.quiz-results-table th.sortable {
+    cursor: pointer; /* Indicate it's clickable */
+    position: relative; /* Needed if sorting indicator is positioned */
+}
+
+.quiz-results-table th.sortable a {
+    text-decoration: none; /* Remove underline from header links */
+    color: #333; /* Match header text color */
+    display: inline-block; /* Allows padding/margin if needed */
+    margin-right: 5px; /* Space between text and arrow */
+}
+
+.quiz-results-table th.sortable.sorted-asc,
+.quiz-results-table th.sortable.sorted-desc {
+    background-color: #e0e0e0; /* Slightly different background for sorted column */
+}
+
+
+.quiz-results-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Apply position relative to the table row for clickable area */
+.quiz-result-row {
+    position: relative;
+}
+
+
+/* Style the row to indicate it's interactive */
+.quiz-result-row:hover {
+    background-color: #e9e9e9;
+    transition: background-color 0.2s ease;
+    cursor: pointer; /* Indicate clickability */
+}
+
+
+/* Style for the actual link - Use edge offsets */
+.row-link {
+    display: block; /* Make the link a block element */
+    text-decoration: none; /* Remove underline */
+    color: black; /* Make the link text invisible */
+    z-index: 1; /* Ensure the link is above other content in the cells */
+}
+
+/* Ensure content in the cells is still visible below the link */
+/* Apply position relative and a lower z-index to TDs */
+.quiz-result-row td {
+    position: relative;
+    z-index: 0; /* Place cell content below the link (z-index 1) */
+}
+
+
+.quiz-results-table td {
+    color: #555;
+}
+
+.quiz-results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Styling for the "No quiz results found" row */
+.quiz-results-table td[colspan="6"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+/* =============================== */
+/* Pagination Styles             */
+/* =============================== */
+.pagination {
+    margin-top: 20px;
+    text-align: center; /* Center the pagination links */
+}
+
+.pagination-link {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-link:hover {
+    background-color: #e9e9e9;
+    text-decoration: none;
+}
+
+.pagination-link.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+    cursor: default; /* No hover effect for the active page */
+}
+
+.pagination-link.active:hover {
+    background-color: #007bff; /* Maintain background on hover */
+}
+
+
+.pagination-link.disabled {
+    color: #ccc;
+    pointer-events: none; /* Disable clicking */
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: default;
+}

@@ -1,0 +1,131 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.message-detail-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.detail-item label {
+    font-weight: bold;
+    color: #555;
+    display: inline-block; /* Labels and spans side-by-side */
+    width: 120px; /* Fixed width for labels */
+    margin-right: 15px;
+    vertical-align: top; /* Align label to the top if content wraps */
+}
+
+.detail-item span,
+.detail-item p {
+    color: #333;
+    display: inline-block;
+    width: calc(100% - 150px); /* Adjust width based on label width and margin */
+    vertical-align: top; /* Align content to the top */
+}
+
+.full-message label,
+.full-message p {
+    display: block; /* Make label and paragraph block level in full message section */
+    width: 100%; /* Full width for label and paragraph */
+    margin-bottom: 10px;
+    margin-right: 0; /* Reset margin-right */
+}
+
+.full-message p {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    white-space: pre-wrap; /* Preserve whitespace and wrap long lines */
+    word-wrap: break-word; /* Break long words */
+}
+
+.status-solved {
+    color: #5cb85c; /* Green */
+    font-weight: bold;
+}
+
+.status-unsolved {
+    color: #d9534f; /* Red */
+    font-weight: bold;
+}
+
+.action-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.action-form h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.status-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Space between buttons if both were shown (though only one is) */
+}
+
+.mark-solved {
+    background-color: #5cb85c; /* Green */
+}
+
+.mark-solved:hover {
+    background-color: #4cae4c;
+}
+
+.mark-unsolved {
+    background-color: #f0ad4e; /* Orange/Yellow */
+}
+
+.mark-unsolved:hover {
+    background-color: #ec971f;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

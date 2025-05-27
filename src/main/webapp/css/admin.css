@@ -1,0 +1,108 @@
+/* admin.css */
+
+/* Basic styling for the main content container */
+.main-admin-container {
+    max-width: 1200px; /* Increased max width for better two-column layout */
+    margin: 80px auto 20px auto; /* Top margin to clear fixed navbar, auto for horizontal centering */
+    padding: 0 20px; /* Padding on sides */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.admin-content-flex {
+    display: flex; /* Use flexbox for the two-column layout */
+    gap: 20px; /* Space between the left and right panels */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.admin-panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the Left Panel (Statistics) */
+.stats-panel {
+    flex-grow: 1; /* Allow this panel to take up the remaining space */
+    flex-basis: 0; /* Important for flex-grow to work as expected */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+/* Styling for the Right Panel (Navigation Buttons) */
+.nav-panel {
+    width: 20%; /* Fixed width for the navigation panel */
+    flex-shrink: 0; /* Prevent this panel from shrinking */
+    min-width: 200px; /* Ensure a minimum width for usability */
+    /* You might want to align the title and list to the center if it looks better */
+    /* text-align: center; */
+}
+
+
+.admin-panel h2 {
+    color: #555;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Styling for the statistics list */
+.stats-list .stat-item {
+    padding: 10px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.stats-list .stat-item:last-child {
+    border-bottom: none;
+}
+
+.stats-list .stat-item strong {
+    margin-right: 5px; /* Space between label and value */
+}
+
+/* Styling for the navigation buttons list */
+.nav-buttons-list {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Styling for the navigation links/buttons */
+.admin-nav-button {
+    display: block; /* Make the link fill its container */
+    padding: 12px; /* Adjusted padding */
+    background-color: #007bff; /* Blue color */
+    color: white;
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1em; /* Adjusted font size */
+    transition: background-color 0.3s ease;
+    flex-grow: 1; /* Allow buttons to grow if gap causes issues */
+}
+
+.admin-nav-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) { /* Adjust breakpoint as needed */
+    .admin-content-flex {
+        flex-direction: column; /* Stack panels vertically on smaller screens */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    .stats-panel,
+    .nav-panel {
+        width: 100%; /* Make panels take full width when stacked */
+        flex-basis: auto; /* Reset flex-basis */
+        flex-shrink: 1; /* Allow shrinking */
+        min-width: auto; /* Remove min-width constraint */
+    }
+
+    .nav-panel {
+        order: -1; /* Optional: Place navigation panel above stats on mobile */
+    }
+}

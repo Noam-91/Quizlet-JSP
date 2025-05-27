@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #555;
+}
+
+.quiz-info {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.overall-result {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.overall-result .passed {
+    color: green;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.overall-result .failed {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.question-results .question-block {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.question-results .question-block.correct {
+    border-color: #d4edda; /* Light green border */
+    background-color: #f8f9fa; /* Lighter background */
+}
+
+.question-results .question-block.incorrect {
+    border-color: #f8d7da; /* Light red border */
+    background-color: #fff0f3; /* Lighter background */
+}
+
+.question-block p {
+    margin-bottom: 8px;
+}
+
+.options ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.options li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.options li:last-child {
+    border-bottom: none;
+}
+
+.options li.user-selected {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary blue */
+}
+
+.options li.correct-option {
+    font-weight: bold;
+    color: green;
+}
+
+/* Ensure correct option is highlighted even if not selected by user */
+.options li.user-selected.correct-option {
+    color: green; /* Correct answer color takes precedence */
+}
+
+.user-answer-display {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.correct-answer-display {
+    font-weight: bold;
+    color: green;
+}
+
+.correct-result {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect-result {
+    color: red;
+    font-weight: bold;
+}
+
+.navigation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: #0056b3;
+}
+/* ... (Your existing CSS code above) ... */
+
+.options ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.options li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+    display: flex; /* Use Flexbox to align checkbox, letter, and text horizontally */
+    align-items: center; /* Vertically centers items in the flex container */
+}
+
+.options li:last-child {
+    border-bottom: none;
+}
+
+/* You can keep .user-selected on the li to indicate the selected row visually */
+.options li.user-selected {
+    background-color: #e9ecef; /* Example: light grey background for selected option */
+    /* Removed previous text color/font-weight rules here */
+}
+
+/* Style for the span wrapping the letter and text */
+.option-text {
+    margin-left: 5px; /* Add some space between the checkbox and the text */
+    flex-grow: 1; /* Allows the text span to take up available space */
+}
+
+/* Text color for correct options */
+.option-text.correct {
+    color: green;
+    font-weight: bold; /* Optional: make correct text bold */
+}
+
+/* Text color for incorrect options */
+.option-text.incorrect {
+    color: #333; /* Using the body text color, or specify 'black' */
+}
+
+/* Optional: Style for the checkbox itself if needed */
+.options input[type="checkbox"] {
+    margin-right: 5px; /* Space between checkbox and the letter */
+}
+
+/* ... (Rest of your CSS code) ... */

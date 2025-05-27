@@ -1,0 +1,140 @@
+.main-content-container {
+    display: flex; /* Use flexbox for two-column layout */
+    width: 90%;
+    margin: 20px auto; /* Center the container and add space below navbar */
+    padding: 0 20px; /* Add padding on the sides */
+    gap: 30px; /* Space between the left and right panels */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.left-panel {
+    flex: 3; /* Allow left panel to take up more space (e.g., 2/3) */
+    min-width: 300px; /* Minimum width before wrapping */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel {
+    flex: 1; /* Allow right panel to take up less space (e.g., 1/3) */
+    min-width: 250px; /* Minimum width before wrapping */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    /* Corrected the box-shadow syntax */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the Results Table */
+.results-table-container {
+    margin-top: 15px;
+    overflow-x: auto; /* Add scroll on small screens if table is too wide */
+}
+
+.results-table-container table {
+    width: 100%; /* Make table take full width of its container */
+    border-collapse: collapse; /* Remove space between borders */
+}
+
+.results-table-container th,
+.results-table-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.results-table-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Styles for the status links in the table */
+.status-link {
+    text-decoration: none; /* Remove underline by default */
+    font-weight: bold; /* Make the text bold */
+}
+
+.status-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style for 'Continue' links (when quiz is active) */
+.status-continue {
+    color: green; /* Set text color to green */
+}
+
+/* Style for 'View' links (when quiz is not active) */
+.status-view {
+    color: black; /* Set text color to black */
+}
+
+.more{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 15px;
+}
+
+.results-table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for rows */
+}
+
+/* Styling for the Stats Chart */
+.stats-container {
+    margin-top: 20px;
+    position: relative; /* Needed for Chart.js responsiveness */
+    height: 300px; /* Give the chart a default height */
+}
+
+
+/* Styling for the Category Selection */
+.category-selection {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.category-selection h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.radio-option {
+    margin-bottom: 8px;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 5px;
+}
+
+.start-quiz-button {
+    display: block; /* Make button take full width */
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-quiz-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content-container {
+        flex-direction: column; /* Stack panels vertically on smaller screens */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    .left-panel,
+    .right-panel {
+        flex: none; /* Remove flex grow/shrink */
+        width: 100%; /* Make panels take full width */
+        min-width: auto; /* Remove min-width constraint */
+    }
+}

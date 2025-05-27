@@ -1,0 +1,517 @@
+/* admin-questions.css */
+
+/* --- General Admin Page Layout --- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Remove default body margin */
+    background-color: #f4f4f4;
+    color: #333;
+    /* Add padding-top in a script or calculate dynamically based on navbar height */
+    /* Example static padding: padding-top: 70px; */
+}
+
+.main-admin-container {
+    max-width: 1200px; /* Max width for content */
+    margin: 80px auto 20px auto; /* Top margin to clear fixed navbar, auto for horizontal centering, 20px bottom margin */
+    padding: 0 20px; /* Padding on sides */
+}
+
+h1 {
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-panel {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px; /* Add margin below panels when stacked */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Use flex column for content within the panel */
+    display: flex;
+    flex-direction: column;
+    /* Allow panel to grow to fit content, especially category list if it scrolls */
+    /*flex-grow: 1; !* Apply to both panels *!*/
+    flex-basis: auto; /* Allow basis to be determined by content */
+}
+
+.admin-panel h2 {
+    color: #555;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- Base Admin Button Styling --- */
+/* Styles that are common to multiple buttons/links */
+.admin-button {
+    display: inline-block; /* Default to inline-block */
+    padding: 12px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    text-decoration: none; /* Remove underline for link buttons */
+    text-align: center;
+    border: none; /* Remove default button border */
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.admin-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    opacity: 0.9; /* Subtle opacity change */
+}
+
+
+/* --- Flex Layout for Two Panels (Main Content Area) --- */
+.admin-content-flex {
+    display: flex; /* Use flexbox for two-column layout */
+    gap: 20px; /* Space between the left and right panels */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Flex properties for the right panel (Categories) */
+.admin-content-flex .category-panel {
+    width: 25%; /* Fixed width for the category panel */
+    flex-shrink: 0; /* Prevent this panel from shrinking */
+    min-width: 200px; /* Ensure a minimum width for usability */
+    /* Ensure content inside can scroll if it overflows */
+    max-height: calc(100vh - 150px); /* Example: Adjust based on header/other content */
+    overflow-y: auto;
+}
+
+/* Flex properties for the left panel (Questions) */
+.admin-content-flex .question-panel {
+    flex-grow: 1; /* Allow question panel to take remaining space */
+    flex-basis: 0; /* Important for flex-grow to work as expected */
+    min-width: 300px; /* Minimum width for the question panel */
+}
+
+
+/* --- Category Panel (Right) Specifics --- */
+/* Styling for the New Category Button container */
+.category-panel .new-category-button-container {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Styling for the New Category Button itself */
+.category-panel .new-category-button {
+    /* Inherits .admin-button styles */
+    display: block; /* Make button fill the container */
+    width: 100%;
+    text-align: center;
+}
+
+/* Category List Styling */
+.category-list {
+    flex-grow: 1; /* Allow the list to grow in the flex column panel */
+    overflow-y: auto; /* Add scrolling if list overflows panel max-height */
+}
+
+.category-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #eee;
+    padding-bottom: 5px;
+}
+
+.category-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0; /* Remove extra padding on last item */
+}
+
+.category-list .category-link {
+    display: block; /* Make the link clickable block area */
+    padding: 8px;
+    color: #333; /* Default link color */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-list .category-link:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+    color: #000;
+}
+
+.category-list .category-item.active .category-link {
+    background-color: #007bff; /* Highlight active category */
+    color: white;
+    font-weight: bold;
+}
+
+
+/* --- Question Panel (Left) Specifics --- */
+
+/* Styling for the Category Rename & Status Section */
+.question-panel .category-rename-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex; /* Use flexbox to align heading, rename form, and status form */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between items in this flex container */
+}
+
+.question-panel .category-rename-section h2 {
+    margin: 0; padding: 0; border: none; padding-bottom: 0;
+    margin-right: 10px;
+    flex-shrink: 0;
+    color: #555; /* Match section heading color */
+    font-size: 1.5em; /* Match h2 size */
+}
+
+/* Styling for forms within the category-rename-section */
+.question-panel .category-rename-section form {
+    display: flex; /* Use flexbox within the form to align input/button */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between elements inside the form (input/button) */
+    margin: 0; padding: 0;
+    flex-grow: 1; /* Allow forms to take available space */
+    min-width: 200px; /* Ensure forms have a minimum usable width */
+}
+
+/* Specific styling for the status toggle form to control its layout within the section */
+.question-panel .category-rename-section form.status-toggle-form {
+    flex-grow: 0; /* Prevent the status form from growing */
+    min-width: auto; /* Allow its width to be determined by its content */
+}
+
+
+.question-panel .category-rename-section .category-rename-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allow input to take up space within its form */
+    min-width: 100px; /* Ensure input has a minimum usable width */
+}
+
+.question-panel .category-rename-section .rename-category-button {
+    /* Inherits .admin-button styles */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+/* --- Styles for Category Status Toggle Button --- */
+/* Inherit .admin-button base styles */
+.question-panel .category-rename-section .admin-button.suspend-category-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.question-panel .category-rename-section .admin-button.activate-category-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+
+/* Add New Question Button Container */
+.question-panel .add-question-button-container {
+    margin-bottom: 15px;
+    /* text-align: right; Optional alignment */
+}
+
+.question-panel .add-question-button {
+    /* Inherits .admin-button styles */
+}
+
+/* --- Question Table Styling --- */
+.question-panel .table-container {
+    margin-top: 15px;
+    overflow-x: auto; /* Add horizontal scroll on small screens if table is too wide */
+}
+
+.question-panel table {
+    width: 100%; /* Make table take full width of its container */
+    border-collapse: collapse; /* Remove space between cell borders */
+    margin-bottom: 10px; /* Space below the table */
+}
+
+.question-panel th,
+.question-panel td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    vertical-align: top; /* Align cell content to the top */
+}
+
+.question-panel th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555; /* Darker text for headers */
+}
+
+/* Zebra striping for table rows */
+.question-panel tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the status text spans */
+.status-active {
+    color: green;
+    font-weight: bold;
+}
+
+.status-suspended {
+    color: red;
+    font-weight: bold;
+}
+
+/* --- Styling for the Combined Question Details Cell --- */
+.question-panel .question-details-cell {
+    /* Default styles inherited from td */
+}
+
+.question-panel .question-details-cell strong {
+    /* Style the question ID */
+    margin-right: 5px; /* Space after ID */
+}
+
+/* Styling for the wrapper around the choices list */
+.question-panel .question-choices {
+    margin-top: 10px; /* Add space between question description and choices list */
+}
+
+.question-panel .question-choices ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.question-panel .question-choices li {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #eee; /* Border between choices within a cell */
+    display: flex; /* Use flexbox for checkbox and text */
+    align-items: center;
+    font-size: 0.95em; /* Slightly smaller font for choices */
+}
+.question-panel .question-choices li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.question-panel .question-choices input[type="checkbox"] {
+    margin-right: 5px; /* Space after checkbox */
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+.question-panel .question-choices .choice-text {
+    flex-grow: 1; /* Allow choice text to take space */
+}
+
+.question-panel .no-choices-message {
+    margin-top: 10px; /* Add space if no choices */
+    font-style: italic;
+    color: #777;
+}
+
+
+/* --- Action Button Styling (Buttons within table rows) --- */
+/* Base style for action buttons in table cells */
+.question-panel .actions-cell .action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    text-decoration: none; /* Ensure links styled as buttons don't have underline */
+    display: inline-block; /* Allow margin between buttons */
+    margin-right: 5px; /* Space between buttons */
+    margin-bottom: 5px; /* Space below buttons if they wrap */
+}
+
+.question-panel .actions-cell .action-button:last-child {
+    margin-right: 0; /* No margin after the last button */
+}
+
+
+.question-panel .actions-cell .action-button:hover {
+    opacity: 0.9;
+}
+
+/* Specific action button colors */
+.question-panel .actions-cell .edit-button {
+    background-color: #ffc107; /* Bootstrap warning yellow */
+    color: #212529;
+}
+
+.question-panel .actions-cell .suspend-button {
+    background-color: #dc3545; /* Bootstrap danger red */
+    color: white;
+}
+
+.question-panel .actions-cell .activate-button {
+    background-color: #28a745; /* Bootstrap success green */
+    color: white;
+}
+
+.question-panel .actions-cell .add-choice-button {
+    background-color: #17a2b8; /* Bootstrap info cyan */
+    color: white;
+}
+
+
+/* Style for forms wrapping action buttons to remove default margin */
+.question-panel .actions-cell form {
+    margin: 0;
+    padding: 0;
+    display: inline-block; /* Make the form inline to keep buttons side-by-side */
+}
+
+
+/* --- Pagination Styling --- */
+.pagination-controls {
+    margin-top: 20px;
+    text-align: center; /* Center the pagination links */
+}
+
+.pagination-link {
+    display: inline-block; /* Display links side-by-side */
+    padding: 8px 12px;
+    margin: 0 4px; /* Space between links */
+    border: 1px solid #007bff; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    color: #007bff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-link:hover:not(.disabled):not(.active) {
+    background-color: #007bff; /* Background color on hover */
+    color: white; /* Text color on hover */
+}
+
+.pagination-link.active {
+    background-color: #007bff; /* Background color for active page */
+    color: white; /* Text color for active page */
+    font-weight: bold;
+    border-color: #007bff; /* Ensure border matches background */
+    cursor: default; /* No pointer cursor on active page */
+}
+
+.pagination-link.disabled {
+    color: #ccc; /* Dim color for disabled links */
+    border-color: #eee; /* Lighter border for disabled links */
+    cursor: not-allowed; /* Show not-allowed cursor */
+    pointer-events: none; /* Prevent click events */
+}
+
+
+/* Message when no category is selected or no questions found */
+.select-category-message {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 20px; /* Space below heading/nav bar if displayed alone */
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) { /* Adjust breakpoint as needed */
+    .main-admin-container {
+        padding: 0 10px; /* Reduce padding on smaller screens */
+    }
+
+    .admin-content-flex {
+        flex-direction: column; /* Stack panels vertically */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    .category-panel, /* Question Management (right) */
+    .question-panel /* Question Management (left) */ {
+        width: 100%; /* Full width when stacked */
+        flex-basis: auto;
+        min-width: auto;
+        max-height: none; /* Remove max-height when stacked */
+        overflow-y: visible; /* Remove scrolling when stacked */
+    }
+
+    /* Optional: put category list first on small screens */
+    .category-panel {
+        order: -1;
+    }
+
+    /* Adjust rename section layout for smaller screens */
+    .question-panel .category-rename-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        gap: 10px; /* Space between stacked items */
+    }
+    .question-panel .category-rename-section h2 {
+        margin-right: 0; /* Remove right margin */
+    }
+    .question-panel .category-rename-section form { /* Both rename and status forms */
+        width: 100%; /* Forms take full width when stacked */
+        flex-direction: column; /* Stack elements within forms vertically */
+        gap: 5px; /* Space between input/button within form */
+        align-items: flex-start; /* Align form elements to the start */
+    }
+    /* Ensure status toggle form doesn't try to take full width if flex-grow was applied */
+    .question-panel .category-rename-section form.status-toggle-form {
+        width: auto; /* Allow width to be determined by content when stacked */
+    }
+
+    .question-panel .category-rename-section .category-rename-input {
+        flex-grow: 1; /* Allow input to grow within its stacked form */
+        min-width: 100px; /* Maintain min-width */
+        width: 100%; /* Make input take full width of its form */
+    }
+
+    .question-panel .category-rename-section .rename-category-button,
+    .question-panel .category-rename-section .admin-button.suspend-category-button,
+    .question-panel .category-rename-section .admin-button.activate-category-button {
+        flex-shrink: 0; /* Prevent buttons from shrinking too much */
+        width: auto; /* Allow button width to be determined by content */
+        display: block; /* Make buttons block level when stacked */
+        text-align: center; /* Center text in block button */
+    }
+
+
+    /* Adjust table cell padding or font size if needed on small screens */
+    .question-panel th, .question-panel td {
+        padding: 8px; /* Slightly less padding */
+    }
+    .question-panel .choices-cell li {
+        font-size: 0.9em; /* Slightly smaller choice text */
+    }
+
+    /* Stack action buttons in table on very small screens */
+    .question-panel .actions-cell {
+        white-space: normal; /* Allow wrapping */
+        display: flex; /* Stack buttons */
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .question-panel .actions-cell .action-button {
+        margin-right: 0; /* Remove right margin when stacked */
+        margin-bottom: 0; /* Remove bottom margin when stacked */
+        width: auto; /* Allow button width based on content */
+        text-align: left; /* Align text left in stacked buttons */
+    }
+    .question-panel .actions-cell form {
+        display: block; /* Make form block when actions are stacked */
+        width: auto;
+        margin-bottom: 0; /* Remove form margin */
+    }
+}

@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    padding-top: 51px;
+    display: flex; /* Use Flexbox for layout */
+    width: 100%;
+    min-height: 100vh; /* Ensure container takes at least full viewport height */
+}
+
+.question-panel {
+    flex: 3; /* Takes 3 parts of available space (75%) */
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the element's total width */
+    border-right: 1px solid #ccc; /* Separator line */
+}
+
+.navigation-panel {
+    flex: 1; /* Takes 1 part of available space (25%) */
+    background-color: #e9e9e9;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+.question-text {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.answer-options div {
+    margin-bottom: 10px;
+}
+
+.answer-options label {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+.navigation-buttons button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.navigation-buttons button:hover {
+    background-color: #4cae4c;
+}
+
+.navigation-panel h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.question-nav-list {
+    list-style: none;
+    padding: 0;
+    display: grid; /* Use Grid for navigation layout */
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Space between grid items */
+}
+
+.question-nav-list li {
+    text-align: center;
+}
+
+.question-nav-list a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.question-nav-list a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+.question-nav-list a.answered {
+    background-color: #d4edda; /* Light green for answered */
+    border-color: #c3e6cb;
+}
+
+.question-nav-list a:hover:not(.active) {
+    background-color: #e9e9e9;
+}
+
+/* Example CSS for the navigation panel and question links */
+
+.navigation-panel {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.navigation-panel h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.question-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange items in a row */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 8px; /* Space between list items */
+}
+
+.question-nav-list li {
+    margin: 0; /* Reset default li margin */
+    padding: 0; /* Reset default li padding */
+}
+
+.question-nav-list a {
+    display: block; /* Make the link fill the li */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    min-width: 25px; /* Ensure a minimum width for numbers */
+    text-align: center;
+}
+
+.question-nav-list a:hover {
+    background-color: #e9e9e9;
+    border-color: #bbb;
+}
+
+/* Style for the currently active question link */
+.question-nav-list a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+/* Style for questions that have been answered */
+.question-nav-list a.answered-question {
+    background-color: #dff0d8; /* Light green background */
+    border-color: #d6e9c6; /* Slightly darker green border */
+    color: #3c763d; /* Dark green text */
+}
+
+/* Style for a link that is both active and answered */
+.question-nav-list a.active.answered-question {
+    background-color: #28a745; /* A distinct color (e.g., a darker green) */
+    border-color: #28a745;
+    color: white;
+}
+
+.timer {
+    position: absolute;
+    right:30%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff3333;
+    background-color: #fff3f3;
+    border: 2px solid #ffcccc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
