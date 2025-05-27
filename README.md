@@ -51,10 +51,10 @@ This web service offers distinct functionalities for both users and administrato
 │   │   │   │   ├── web.xml         # Deployment Descriptor  
 │   │   │   │   └── lib/            # External JARs (e.g., MySQL JDBC Driver)  
 │   │   │   ├── jsp/                # JSP files (e.g., quiz.jsp, admin.jsp)  
-│   │   │   └── css/                # CSS files  
+│   │   │   ├── css/                # CSS files  
 │   │   │   └── js/                 # JavaScript files (for countdown, form handling)  
 │   └── test/  
-├── pom.xml (or build.gradle)       # Build configuration  
+├── pom.xml                         # Build configuration  
 └── README.md  
 ---
 
@@ -65,7 +65,7 @@ Follow these instructions to set up and run the Quizlet web service on your loca
 ### Prerequisites
 
 * **Java Development Kit (JDK) 8 or higher**
-* **Apache Maven** or **Gradle** (if using a build tool)
+* **Apache Maven** 
 * **MySQL Server** (version 8.0 recommended)
 * **Apache Tomcat** (or another Servlet Container like Jetty)
 
